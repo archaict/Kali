@@ -1,15 +1,45 @@
 #+TITLE: Kali Linux
 
-* Configurations
+* Installation
+
+** What do you need?
+
+If you're DE user, you might want to select what you need from =tasksel=, since it iss also possible to install some tools from here also. you might want to use this to your advantage, choose with =space= and after you're done, press =enter=.
 
 #+begin_src shell
 $ sudo tasksel
+#+end_src
+
+Some tools if you choose to use WM, here I use I3 for convenience purpose, but you can also use =xmonad= or =qtile=.
+
+#+begin_src shell
 $ sudo apt install \
     spice-vdagent spice-webdavd \
     htop \
     neofetch emacs neovim \
+    cmake libtool libtool-bin\
     i3-gaps picom ranger rofi kitty
-$ sudo bash -c  'echo "set bell-style none" >> /etc/inputrc'
-$ git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
+$ sudo bash -c 'echo "set bell-style none" >> /etc/inputrc'
+#+end_src
+
+** Doom Emacs
+
+I use Doom Emacs by Hlissner that can be downloaded [[https://github.com/hlissner/doom-emacs][here]] or using command below.
+
+#+begin_src shell
+$ git clone --depth 1 https://github.com/hlissner/doom-emacs $HOME/.emacs.d
 $ $HOME/.emacs.d/bin/doom install
+#+end_src
+
+
+** Doom Emacs
+
+#+begin_src shell
+$ curl -fsSL https://starship.rs/install.sh | bash
+#+end_src
+
+
+#+begin_src shell
+[.zshrc]
+eval "$(starship init zsh)"
 #+end_src
