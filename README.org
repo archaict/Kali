@@ -23,15 +23,16 @@ $ sudo apt install \
     htop \
     neofetch emacs neovim \
     cmake libtool libtool-bin\
-    i3-gaps picom ranger rofi kitty
+    i3-gaps i3blocks picom ranger rofi kitty feh
 $ sudo bash -c 'echo "set bell-style none" >> /etc/inputrc'
 #+end_src
-
 
 ** Link It All
 
 #+begin_src shell
 $ ln -s $HOME/Github/Kali/.config/* $HOME/.config/
+$ ln -s $HOME/Github/Kali/.zshrc    $HOME/.zshrc
+$ sudo ln -sf $HOME/Github/Kali/etc/hosts /etc/hosts
 #+end_src
 
 ** Doom Emacs
@@ -53,3 +54,22 @@ $ curl -fsSL https://starship.rs/install.sh | bash
 [.zshrc]
 eval "$(starship init zsh)"
 #+end_src
+
+** Gnome
+
+If you choose Gnome, this is the settings I use for it:
+- [[https://extensions.gnome.org][Gnome Extension]] : This is useful to add and remove extensions from Gnome
+- [[https://github.com/pop-os/shell][Pop-Shell]] : Tiling on Gnome (There's no going back after tiling)
+
+** Installation (Pop Shell)
+
+#+begin_src shell
+$ git clone https://github.com/pop-os/shell
+#+end_src
+
+* Firefox
+
+- Dark Reader
+- Ublock Origin
+- Firefox Color
+- Vimium FF
