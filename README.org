@@ -9,5 +9,6 @@ $ sudo apt install \
     htop \
     neofetch emacs neovim \
     i3-gaps picom ranger rofi kitty
-$ sudo echo "set bell-style none" >> /etc/inputrc
+$ sudo bash -c  'echo "set bell-style none" >> /etc/inputrc'
+
 #+end_src
