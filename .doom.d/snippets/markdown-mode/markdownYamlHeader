@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: markdownYamlHeader
+# key: /myh
+# --
+---
+title: "${1:Assignment}"
+subtitle: "Meet ${2:Number}"
+
+author: "${3:Archaict}"
+
+keywords:
+  - Project
+  - University
+
+rights: © 2021 ${3:Archaict}
+
+titlepage: true
+toc-own-page: true
+toc-depths: 2
+titlepage-color: "fafafa"
+---

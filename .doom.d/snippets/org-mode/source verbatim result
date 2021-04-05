@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: source verbatim result
+# uuid: svr
+# key: svr
+# condition: t
+# --
+
+
+#+begin_src ${1:shell} :results verbatim
+
+#+end_src
