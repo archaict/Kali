@@ -1,0 +1,23 @@
+# KEYMAPS
+
+map j scrollPageDown
+map k scrollPageUp
+map h previousTab
+map l nextTab
+map K previousTab
+map J nextTab
+
+map s scrollPageDown
+map w scrollPageUp
+map a previousTab
+map d nextTab
+
+map A goBack
+map D goForward
+map E LinkHints.activateModeToCopyLinkUrl
+map e LinkHints.activateModeToCopyLinkUrl
+map ; LinkHints.activateModeToCopyLinkUrl
+
+map q togglePinTab
+map m toggleMuteTab
+

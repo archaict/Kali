@@ -2,6 +2,11 @@
 
 * Installation
 
+#+begin_src shell
+$ mkdir -p $HOME/Github
+$ git clone https://github.com/archaict/Kali $HOME/Github/Kali
+#+end_src
+
 ** What do you need?
 
 If you're DE user, you might want to select what you need from =tasksel=, since it iss also possible to install some tools from here also. you might want to use this to your advantage, choose with =space= and after you're done, press =enter=.
@@ -22,6 +27,13 @@ $ sudo apt install \
 $ sudo bash -c 'echo "set bell-style none" >> /etc/inputrc'
 #+end_src
 
+
+** Link It All
+
+#+begin_src shell
+$ ln -s $HOME/Github/Kali/.config/* $HOME/.config/
+#+end_src
+
 ** Doom Emacs
 
 I use Doom Emacs by Hlissner that can be downloaded [[https://github.com/hlissner/doom-emacs][here]] or using command below.
@@ -31,13 +43,11 @@ $ git clone --depth 1 https://github.com/hlissner/doom-emacs $HOME/.emacs.d
 $ $HOME/.emacs.d/bin/doom install
 #+end_src
 
-
-** Doom Emacs
+** Starship
 
 #+begin_src shell
 $ curl -fsSL https://starship.rs/install.sh | bash
 #+end_src
-
 
 #+begin_src shell
 [.zshrc]
