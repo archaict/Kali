@@ -10,5 +10,6 @@ $ sudo apt install \
     neofetch emacs neovim \
     i3-gaps picom ranger rofi kitty
 $ sudo bash -c  'echo "set bell-style none" >> /etc/inputrc'
-
+$ git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
+$ $HOME/.emacs.d/bin/doom install
 #+end_src
