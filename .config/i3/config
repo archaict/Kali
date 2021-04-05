@@ -1,45 +1,49 @@
-set $mod Mod1
+# Initialize
+set $mod Mod4
 set $left  h
 set $down  j
 set $up    k
 set $right l
 
-# initial
+exec_always --no-startup-id feh --bg-fill "/home/optixal/Pictures/Off White Wallpapers/cfcbb41_bw.png"
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
+exec_always --no-startup-id ~/.config/i3/clipboard_fix.sh
+
+# Starting
 font pango:RobotoMono Nerd Font Regular 9
 floating_modifier $mod
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec kitty
 bindsym $mod+q kill
-bindsym $mod+d exec dmenu_run
+bindsym $mod+space exec dmenu_run
 
-# change focus
+# Focus
 bindsym $mod+$left          focus left
 bindsym $mod+$down          focus down
 bindsym $mod+$up            focus up
 bindsym $mod+$right         focus right
 
-# move focused window
 bindsym $mod+Shift+$left    move left
 bindsym $mod+Shift+$down    move down
 bindsym $mod+Shift+$up      move up
 bindsym $mod+Shift+$right   move right
 
-# change splits
-bindsym $mod+h split h
-bindsym $mod+v split v
+# Splits
+bindsym $mod+Ctrl+h split h
+bindsym $mod+Ctrl+j split v
 
-# enter fullscreen mode for the focused container
+# Fullscreen Mode
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Contain these thing!
+bindsym $mod+Ctrl+s layout stacking
+bindsym $mod+Ctrl+w layout tabbed
+bindsym $mod+Ctrl+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# Tiling or Floating?
+bindsym $mod+Ctrl+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # switch to workspace
 bindsym $mod+a workspace 1
@@ -54,20 +58,16 @@ bindsym $mod+Shift+d move container to workspace 3
 bindsym $mod+Shift+p move container to workspace 4
 
 # reload the configuration file
-bindsym $mod+Shift+r reload
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+r reload
+bindsym $mod+Ctrl+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
 
-    bindsym j         resize shrink width  10 px or 10 ppt
-    bindsym k         resize grow   height 10 px or 10 ppt
-    bindsym l         resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow   width  10 px or 10 ppt
-    bindsym Left      resize shrink width  10 px or 10 ppt
-    bindsym Down      resize grow   height 10 px or 10 ppt
-    bindsym Up        resize shrink height 10 px or 10 ppt
-    bindsym Right     resize grow   width  10 px or 10 ppt
+    bindsym $left     resize shrink width  10 px or 10 ppt
+    bindsym $down     resize grow   height 10 px or 10 ppt
+    bindsym $up       resize shrink height 10 px or 10 ppt
+    bindsym $left     resize grow   width  10 px or 10 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -84,17 +84,10 @@ bar {
         height 26
         font pango:RobotoMono Nerd Font Regular 7.5
         colors {
-            #statusline #EEEEEE
-            #background #1C1D2B88
-            #focused_workspace #282A3E88 #282A3E88 #FFFFFF
-            #statusline #E6FFF5
-            #background #0D0D0D88
-            #focused_workspace #6A66B344 #6A66B344 #FFFFFF
-            #inactive_workspace #1C1D2B88 #1C1D2B88 #777777
-            statusline #000000
+            statusline #222222
             background #0D0D0D00
-            focused_workspace #00000000 #00000000 #000000
-            inactive_workspace #00000000 #00000000 #555555
+            focused_workspace #22222222 #22222222 #222222
+            inactive_workspace #22222222 #22222222 #555555
         }
 }
 
@@ -103,12 +96,8 @@ for_window [class="^.*"] border pixel 0
 gaps inner 10
 gaps outer 10
 
-exec_always --no-startup-id feh --bg-fill "/home/optixal/Pictures/Off White Wallpapers/cfcbb41_bw.png"
-exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
-exec_always --no-startup-id ~/.config/i3/clipboard_fix.sh
-
 # Resize Bindings
-bindsym $mod+Ctrl+Shift+Right resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+Up resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+Down resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+Left resize grow width 10 px or 10 ppt
+# bindsym $mod+Ctrl+Shift+Right resize shrink width  10 px or 10 ppt
+# bindsym $mod+Ctrl+Shift+Up    resize grow   height 10 px or 10 ppt
+# bindsym $mod+Ctrl+Shift+Down  resize shrink height 10 px or 10 ppt
+# bindsym $mod+Ctrl+Shift+Left  resize grow   width  10 px or 10 ppt
