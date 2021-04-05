@@ -1,19 +1,6 @@
 (setq doom-scratch-initial-major-mode 'org-mode)
-
 (provide 'config)
-
 (setq doom-theme 'doom-tomorrow-night)
-
-(after! solaire-mode
-  (solaire-global-mode -1))
-(custom-set-faces
-  '(default   ((t (:background "#1d2021"))))
-  '(mode-line ((t (:background "#303030"))))
-  '(doom-modeline-evil-insert-state   ((t (:foreground "#EBCB8B"))))
-  '(doom-modeline-evil-normal-state   ((t (:foreground "#D08770"))))
-;;'(hl-line   ((t (:background "#0b0e10"))))
- )
-
 (setq doom-modeline-icon t)
 
 ;; Makes *scratch* empty.
@@ -28,28 +15,22 @@
   (remove-hook 'persp-add-buffer-on-after-change-major-mode-filter-functions #'doom-unreal-buffer-p))
 
 (map! :leader
-      :desc "Tangle current file" "c t"   #'org-babel-tangle
-      :desc "Tangle current file" "t t"   #'org-babel-tangle
-
-      :desc "Highlight"    "t h"   #'hl-todo-mode
-      :desc "Time"         "t T"   #'display-time
-
-      :desc "Dired" "d d"   #'dired-jump
-
-      :desc "Run code" "t c c" #'org-ctrl-c-ctrl-c
-      :desc "Toggle command log mode" "t c m" #'command-log-mode
-      :desc "Show command log buffer" "t c l" #'clm/toggle-command-log-buffer
-
-   ;; :desc "Terminal buffer" "o T" #'vterm
-
-      :desc "Presentation"      "t p"   #'org-present
-      :desc "Quit presentation" "P q"   #'org-present-quit
-      :desc "Next Slide"        "P h"   #'org-present-prev
-      :desc "Prevous Slide"     "P l"   #'org-present-next
-      :desc "Big Mode"          "P b"   #'org-present-big
-      :desc "Small Mode"        "P s"   #'org-present-small
-      :desc "First Slide"       "P B"   #'org-present-beginning
-      :desc "End Slide"         "P E"   #'org-present-end
+      :desc "Tangle current file"       "c t"   #'org-babel-tangle
+      :desc "Tangle current file"       "t t"   #'org-babel-tangle
+      :desc "Dired"                     "d d"   #'dired-jump
+      :desc "Presentation"              "t p"   #'org-present
+      :desc "Quit presentation"         "P q"   #'org-present-quit
+      :desc "Next Slide"                "P h"   #'org-present-prev
+      :desc "Prevous Slide"             "P l"   #'org-present-next
+      :desc "Big Mode"                  "P b"   #'org-present-big
+      :desc "Small Mode"                "P s"   #'org-present-small
+      :desc "First Slide"               "P B"   #'org-present-beginning
+      :desc "End Slide"                 "P E"   #'org-present-end
+      :desc "Highlight"                 "t h"   #'hl-todo-mode
+      :desc "Time"                      "t T"   #'display-time
+      :desc "Run code"                  "t c c" #'org-ctrl-c-ctrl-c
+      :desc "Toggle command log mode"   "t c m" #'command-log-mode
+      :desc "Show command log buffer"   "t c l" #'clm/toggle-command-log-buffer
       )
 
 (map! :leader
@@ -69,15 +50,15 @@
 (map! :leader
       (:prefix-map ("T" . "Text")
 
-        :desc "Figlet Border" "f b" #'figlet-border
-        :desc "Figlet Future" "f f" #'figlet-future
-        :desc "Figlet Pagga"  "f p" #'figlet-pagga
-        :desc "Figlet Small"  "f s" #'figlet-small
-        :desc "Figlet Future Border" "f F" #'figlet-future-border
+        :desc "Figlet Border" "f b"             #'figlet-border
+        :desc "Figlet Future" "f f"             #'figlet-future
+        :desc "Figlet Pagga"  "f p"             #'figlet-pagga
+        :desc "Figlet Small"  "f s"             #'figlet-small
+        :desc "Figlet Future Border" "f F"      #'figlet-future-border
 
-        :desc "List - Lorem Ipsum" "l" #'lorem-ipsum-insert-list
-        :desc "Sentences - Lorem Ipsum" "s" #'lorem-ipsum-insert-sentences
-        :desc "Paragraphs - Lorem Ipsum" "p" #'lorem-ipsum-insert-paragraphs))
+        :desc "List - Lorem Ipsum" "l"          #'lorem-ipsum-insert-list
+        :desc "Sentences - Lorem Ipsum" "s"     #'lorem-ipsum-insert-sentences
+        :desc "Paragraphs - Lorem Ipsum" "p"    #'lorem-ipsum-insert-paragraphs))
 
 (evil-better-visual-line-on)
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
@@ -98,36 +79,24 @@
        :n "<backspace>" #'dired-up-directory
        ))
 
-(setq doom-font (font-spec :family "Iosevka" :size 15)
-      doom-variable-pitch-font (font-spec :family "Iosevka" :size 15)
-      doom-big-font (font-spec :family "Iosevka" :size 24))
-
 (setq-default left-margin-width 4 right-margin-width 4)
 (set-window-buffer nil (current-buffer))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
+
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-(when (file-exists-p "~/.doom.d/banner")
-  (setq +doom-dashboard-banner-padding '(2 . 2)
-        +doom-dashboard-banner-file "arkiv.png"
-        +doom-dashboard-banner-dir "~/.doom.d/banner"))
-
-;;  NIXOS ICON
-
-(display-time-mode 1)
-(setq display-time-format "%Y-%m-%d | %R [%Z] ")
-(display-battery-mode 1) ;; Battery ERROR
-
-;; Header
-(setq-default header-line-format " ")
-;;(set-face-attribute 'header-line nil  :height 150)
 
 ;; Doom Modeline
+(setq-default header-line-format " ")
+(display-battery-mode 1)
+(display-time-mode 1)
+(setq display-time-format "%Y-%m-%d | %R [%Z] ")
+
 (setq doom-modeline-lsp t)
 (setq doom-modeline-height 35)
 (setq doom-modeline-modal-icon t)
@@ -135,10 +104,6 @@
 (setq doom-modeline-enable-word-count nil)
 (setq doom-modeline-major-mode-color-icon t)
 (setq doom-modeline-continuous-word-count-modes nil)
-
-(custom-set-faces
-  '(mode-line ((t (:family "Iosevka Term" :height 1.0 ))))
-  '(mode-line-inactive ((t (:family "Iosevka Term" :height 1.0)))))
 
 (setq evil-normal-state-cursor '("#dddddd" box))
 (setq evil-visual-state-cursor '("#dddddd" box))
@@ -212,32 +177,17 @@
   (if (string-equa(setq org-hide-emphasis-markers t))))
 
 (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
-
-(setq deft-directory "~/Dropbox/vault"
-      deft-extensions '("org")
-      deft-recursive t)
-
-(setq org-roam-directory "~/Dropbox/vault/roam")
-(setq org-roam-index-file "~/Dropbox/vault/roam/notebook.org")
-
-(add-to-list 'load-path "~/Project/NixOS/doom/misc/")
 (autoload 'org-present "org-present" nil t)
-
 (require 'org-inlinetask)
-(setq org-agenda-files (directory-files-recursively "~/Dropbox/vault/" "\\.org$"))
 
 (setq hl-todo-keyword-faces
       '(("HOLD"   . "#D3869B")
         ("TITLE"  . "#B8BB26")
-        ("LYFE"   . "#B8BB26")
         ("TODO"   . "#FABD2F")
         ("LINK"   . "#5E81AC")
         ("NOTE"   . "#B8BB26")
         ("DONE"   . "#808080")
         ("HACK"   . "#FE8019")
-        ("TEACH"  . "#7B2B5E")
-        ("UNIV"   . "#FE8019")
-        ("ASSIGN" . "#FB4934")
         ("FIXME"  . "#FB4934")
         ("WARNING"   . "#FB4934")))
 
@@ -246,41 +196,9 @@
 (setq tab-width 2)
 (setq-default indent-tabs-mode nil)
 
-;; Dart Server --------------------------------------------------------------
-;; (setq dart-server-sdk-path "/Users/sashnortier/Desktop/Code/flutter/bin/cache/dart-sdk/")
-(setq dart-server-enable-analysis-server t)
-(add-hook 'dart-server-hook 'flycheck-mode)
-
-(use-package lsp-mode
-  :hook (dart-mode . lsp)
-  :commands lsp)
-
-(add-hook 'dart-mode-hook 'lsp)
-(with-eval-after-load "projectile"
-  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-  (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
-
-(setq lsp-auto-guess-root t)
-
-(use-package dart-mode
-  :ensure t
-  :hook (dart-mode . (lambda ()
-                      (add-hook 'after-save-hook #'flutter-run-or-hot-reload nil t)))
-  :custom
-  (dart-format-on-save t)
-  (dart-sdk-path "/run/current-system/sw/bin/cache/dart-sdk"))
-
-(use-package flutter
-  :after dart-mode
-  :bind (:map dart-mode-map
-              ("C-M-x" . #'flutter-run-or-hot-reload)))
-
-  ;;(flutter-sdk-path "/Users/sashnortier/Desktop/Code/flutter/"))
-
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook 'display-time-mode)
 
-(evil-swap-keys-swap-colon-semicolon)
 
 (add-hook 'after-init-hook(lambda ()(setq indent-tabs-mode nil)))
 (add-hook 'after-init-hook(lambda ()(setq tab-width 2)))
