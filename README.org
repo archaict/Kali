@@ -2,7 +2,7 @@
 
 This is dotfiles for Kali Linux i3 Edition, this Kali Linux runs as a virtual machine and most of the dotfiles here are on progress, so you can grab it all or pick and choose. Happy Ricing!
 
-[[./kali.png]]
+[[./Khali.png]]
 
 * Installation
 
