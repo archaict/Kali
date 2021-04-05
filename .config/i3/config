@@ -5,9 +5,9 @@ set $down  j
 set $up    k
 set $right l
 
-exec_always --no-startup-id feh --bg-fill "/home/optixal/Pictures/Off White Wallpapers/cfcbb41_bw.png"
+exec_always --no-startup-id feh --bg-fill "/usr/share/backgrounds/kali/kali-geometric-16x9.png"
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
-exec_always --no-startup-id ~/.config/i3/clipboard_fix.sh
+exec_always --no-startup-id polybar -r top
 
 # Starting
 font pango:RobotoMono Nerd Font Regular 9
@@ -59,7 +59,7 @@ bindsym $mod+Shift+p move container to workspace 4
 
 # reload the configuration file
 bindsym $mod+Ctrl+r reload
-bindsym $mod+Ctrl+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+c exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -74,27 +74,12 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
-# i3bar with i3blocks
-bar {
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        i3bar_command i3bar -t
-        position top
-        height 26
-        font pango:RobotoMono Nerd Font Regular 7.5
-        colors {
-            statusline #222222
-            background #0D0D0D00
-            focused_workspace #22222222 #22222222 #222222
-            inactive_workspace #22222222 #22222222 #555555
-        }
-}
+#bindsym $mod+r mode "resize"
 
 # i3-gaps
 for_window [class="^.*"] border pixel 0
-gaps inner 10
-gaps outer 10
+gaps inner 14
+gaps outer -2
 
 # Resize Bindings
 # bindsym $mod+Ctrl+Shift+Right resize shrink width  10 px or 10 ppt
