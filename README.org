@@ -1,4 +1,9 @@
-#+TITLE: Kali Linux
+#+TITLE:Kali Linux
+
+This is dotfiles for Kali Linux i3 Edition, this Kali Linux runs as a virtual machine and most of the dotfiles here are on progress, so you can grab it all or pick and choose. Happy Ricing!
+
+[[./assets/kali.png]]
+
 
 * Installation
 
@@ -64,7 +69,10 @@ If you choose Gnome, this is the settings I use for it:
 ** Installation (Pop Shell)
 
 #+begin_src shell
-$ git clone https://github.com/pop-os/shell
+$ sudo apt install node-typescript make git
+$ git clone https://github.com/pop-os/shell $HOME/Github/shell
+$ cd $HOME/Github/shell
+$ make local-install
 #+end_src
 
 * Firefox
