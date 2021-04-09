@@ -8,10 +8,12 @@ set $right l
 exec_always --no-startup-id feh --bg-fill "/usr/share/backgrounds/kali/kali-geometric-16x9.png"
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec_always --no-startup-id polybar -r top
+exec_always --no-startup-id emacs --daemon
 
 # Starting
 font pango:RobotoMono Nerd Font Regular 9
 floating_modifier $mod
+
 bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 bindsym $mod+space exec dmenu_run
@@ -33,6 +35,7 @@ bindsym $mod+Ctrl+j split v
 
 # Fullscreen Mode
 bindsym $mod+f fullscreen toggle
+bindsym $mod+shift+f exec scrot
 
 # Contain these thing!
 bindsym $mod+Ctrl+s layout stacking
@@ -64,17 +67,17 @@ bindsym $mod+Ctrl+c exec "i3-nagbar -t warning -m 'You pressed the exit shortcut
 # resize window (you can also use the mouse for that)
 mode "resize" {
 
-    bindsym $left     resize shrink width  10 px or 10 ppt
-    bindsym $down     resize grow   height 10 px or 10 ppt
-    bindsym $up       resize shrink height 10 px or 10 ppt
-    bindsym $left     resize grow   width  10 px or 10 ppt
+    bindsym $left     resize shrink width  1 px or 1 ppt
+    bindsym $down     resize grow   height 1 px or 1 ppt
+    bindsym $up       resize shrink height 1 px or 1 ppt
+    bindsym $right    resize grow   width  1 px or 1 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-#bindsym $mod+r mode "resize"
+bindsym $mod+r mode "resize"
 
 # i3-gaps
 for_window [class="^.*"] border pixel 0
