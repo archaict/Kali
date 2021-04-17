@@ -63,6 +63,7 @@ bindsym $mod+Shift+p move container to workspace 4
 # reload the configuration file
 bindsym $mod+Ctrl+r reload
 bindsym $mod+Ctrl+c exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+r exec "xrandr --output Virtual-1 --auto"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

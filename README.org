@@ -59,6 +59,12 @@ $ curl -fsSL https://starship.rs/install.sh | bash
 eval "$(starship init zsh)"
 #+end_src
 
+** Starship
+
+#+begin_src shell
+$ xrandr --output Virtual-1 --auto
+#+end_src
+
 ** Gnome
 
 If you choose Gnome, this is the settings I use for it:
