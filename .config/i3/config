@@ -14,7 +14,11 @@ exec_always --no-startup-id emacs --daemon
 font pango:RobotoMono Nerd Font Regular 9
 floating_modifier $mod
 
-bindsym $mod+Return exec kitty
+#bindsym $mod+Return exec kitty
+#bindsym $mod+Return exec "emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'"
+bindsym $mod+Return exec "kitty"
+bindsym $mod+v exec "emacsclient -c -a 'emacs' --eval '(doom/switch-to-scratch-buffer)'"
+bindsym $mod+i exec "firefox"
 bindsym $mod+q kill
 bindsym $mod+space exec dmenu_run
 
@@ -30,8 +34,8 @@ bindsym $mod+Shift+$up      move up
 bindsym $mod+Shift+$right   move right
 
 # Splits
-bindsym $mod+Ctrl+h split h
-bindsym $mod+Ctrl+j split v
+# bindsym $mod+Ctrl+h split h
+# bindsym $mod+Ctrl+j split v
 
 # Fullscreen Mode
 bindsym $mod+f fullscreen toggle
@@ -60,10 +64,13 @@ bindsym $mod+Shift+s move container to workspace 2
 bindsym $mod+Shift+d move container to workspace 3
 bindsym $mod+Shift+p move container to workspace 4
 
+bindsym F2 exec "amixer -D pulse set Master '5%-'"
+bindsym F3 exec "amixer -D pulse set Master '5%+'"
+
 # reload the configuration file
 bindsym $mod+Ctrl+r reload
 bindsym $mod+Ctrl+c exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+r exec "xrandr --output Virtual-1 --auto"
+bindsym $mod+r exec "xrandr --output Virtual-1 --auto && nitrogen --restore"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -78,7 +85,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r mode "resize"
 
 # i3-gaps
 for_window [class="^.*"] border pixel 0

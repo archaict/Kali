@@ -1,4 +1,4 @@
-add_newline = true
+add_newline = false
 format = "$battery$directory[»](bold #64AECC) "
 
 [python]
