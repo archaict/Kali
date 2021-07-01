@@ -9,6 +9,12 @@
   position: absolute !important;
 }
 
+/* bring the browser window to the top */
+#browser {
+    -moz-box-ordinal-group: 0 !important;
+    padding-top: 0px;
+}
+
 :root:not([customizing]) #TabsToolbar{
   background-color: #000000;
 }
